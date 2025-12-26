@@ -1,0 +1,16 @@
+{
+    "welcome": "Welcome",
+    "login": "Login",
+    "logout": "Logout",
+    "theme": {
+        "theme": "Theme",
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+    },
+    "language": {
+        "language": "Language",
+        "ar": "العربية",
+        "en": "English"
+    }
+}

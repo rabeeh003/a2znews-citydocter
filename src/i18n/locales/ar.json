@@ -1,0 +1,16 @@
+{
+    "welcome": "مرحبا",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "theme": {
+        "theme": "الثيم",
+        "dark": "الظلام",
+        "light": "الضوء",
+        "system": "النظام"
+    },
+    "language": {
+        "language": "اللغة",
+        "ar": "العربية",
+        "en": "English"
+    }
+}

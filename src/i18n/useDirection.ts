@@ -1,0 +1,14 @@
+import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { getDirectionByLang } from './languageConfig'
+
+export const useDirection = () => {
+    const { i18n } = useTranslation()
+
+    useEffect(() => {
+        const dir = getDirectionByLang(i18n.language)
+
+        document.documentElement.setAttribute('dir', dir)
+        document.documentElement.setAttribute('lang', i18n.language)
+    }, [i18n.language])
+}

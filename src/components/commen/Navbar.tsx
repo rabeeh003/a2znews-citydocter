@@ -4,6 +4,7 @@ import { DropdownSearch } from "./dropdown-search"
 import { AllLanguages } from "@/i18n"
 import { Switch } from "@radix-ui/react-switch"
 import { useTheme } from "./theme-provider"
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
     const { i18n } = useTranslation()
@@ -60,10 +61,10 @@ export default function Navbar() {
                     <RightSection />
                 </div>
 
-                <div className="flex justify-center items-center gap-2">
+                <Link to="/" className="flex justify-center items-center gap-2">
                     <img className="w-20" src="images/logo.png" alt="a2z-logo" />
                     <h1 className="hidden lg:block text-2xl font-bold">A2Z News</h1>
-                </div>
+                </Link>
 
                 <div className="lg:flex justify-end">
                     <LeftActions />

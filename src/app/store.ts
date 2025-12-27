@@ -2,15 +2,18 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import preferenceReducer from './slices/preference'
+import apiReducer from './slices/api/api.slice'
 
 const rootReducer = combineReducers({
     preference: preferenceReducer,
+    api: apiReducer,
 })
 
 const persistConfig = {
     key: 'root',
     storage,
     whitelist: ['preference'],
+    blacklist: ['api'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

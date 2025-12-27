@@ -1,4 +1,5 @@
 import NewsCard from "@/components/home/NewsCard";
+import Comments from "@/components/news-details/Comment";
 import { useEffect, useState } from "react";
 import type { News } from "@/app/slices/api/api.types";
 import { fetchNews } from "@/app/slices/api/api.thunks";
@@ -11,7 +12,11 @@ import { ChevronRight } from "lucide-react";
 import axios from "axios";
 import type { DetailedNews } from "@/utils/types";
 
-export default function NewsDetailsPage({ id }: { id: number }) {
+import { useParams } from "react-router-dom";
+import Categories from "@/components/home/Categories";
+
+export default function NewsDetailsPage() {
+    const { id } = useParams<{ id: string }>()
     const dispatch = useAppDispatch()
     const news = useAppSelector(selectNews)
     const loading = useAppSelector(selectApiLoading)
@@ -19,6 +24,9 @@ export default function NewsDetailsPage({ id }: { id: number }) {
     const [comments, setComments] = useState([])
 
     useEffect(() => {
+        if (!id) return;
+        window.scrollTo(0, 0);
+
         axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
             .then(response => {
                 setNewsDetails(response.data)
@@ -34,7 +42,7 @@ export default function NewsDetailsPage({ id }: { id: number }) {
                 console.log(error)
             })
 
-    }, [])
+    }, [id])
 
     useEffect(() => {
         dispatch(fetchNews())
@@ -42,22 +50,23 @@ export default function NewsDetailsPage({ id }: { id: number }) {
 
     return (
         <>
-            {/* <div className="sticky top-1 z-50 px-2 w-full flex items-center justify-center">
+            <div className="sticky top-1 z-50 px-2 w-full flex items-center justify-center">
                 <Categories />
-            </div> */}
+            </div>
             <div className="px-2 pt-3 max-w-7xl mx-auto lg:flex gap-2 pb-2">
                 <div className="lg:w-[80%] ">
                     {newsDetails ? (
                         <div>
-                            <img src={newsDetails?.image || '/images/placeholder.png'} alt="" className="w-full rounded-2xl" />
+                            <img src={newsDetails?.image || '/images/placeholder.png'} alt="" className="w-full rounded-2xl h-full max-h-[400px] object-contain bg-gray-300" />
                             <h2 className="font-semibold text-2xl">{newsDetails?.title}</h2>
                             <p className="text-gray-500">{newsDetails?.body}</p>
+                            <Comments comments={comments} />
                         </div>
                     ) : (
                         <p>Loading...</p>
                     )}
                     <div className="my-2">
-                        <img src="https://www.shutterstock.com/image-illustration/delicious-food-menu-banner-asian-260nw-2266341803.jpg" alt="" className="w-full rounded-2xl" />
+                        <img src="https://www.shutterstock.com/image-illustration/delicious-food-menu-banner-asian-260nw-2266341803.jpg" alt="" className="w-full rounded-2xl h-48 object-cover" />
                     </div>
                     <div className="flex items-center justify-between gap-2 mt-5 mb-2">
                         <span className="font-semibold text-2xl">More News</span>
@@ -69,7 +78,7 @@ export default function NewsDetailsPage({ id }: { id: number }) {
                         {loading ? (
                             <p>Loading...</p>
                         ) : (
-                            news.slice(12, 18).map((newsItem: News) => (
+                            news.slice(20, 24).map((newsItem: News) => (
                                 <NewsCard key={newsItem.id} news={newsItem} />
                             ))
                         )}

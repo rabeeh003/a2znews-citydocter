@@ -5,6 +5,15 @@
     "search": "بحث",
     "searchPlaceholder": "بحث...",
     "noDataFound": "لا توجد بيانات.",
+    "categories": {
+        "categories": "الاقسام",
+        "explore": "استكشف",
+        "sports": "الرياضة",
+        "business": "الاقتصاد",
+        "health": "الصحة",
+        "technology": "التقنية",
+        "entertainment": "الترفيه"
+    },
     "theme": {
         "theme": "الثيم",
         "dark": "الظلام",

@@ -10,6 +10,7 @@ function App() {
   return (
     <ThemeProvider>
       <Navbar />
+
       <h1>{t('welcome')}</h1>
     </ThemeProvider>
   )

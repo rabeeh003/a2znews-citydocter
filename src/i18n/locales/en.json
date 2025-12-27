@@ -5,6 +5,15 @@
     "search": "Search",
     "searchPlaceholder": "Search...",
     "noDataFound": "No Data found.",
+    "categories": {
+        "categories": "Categories",
+        "explore": "Explore",
+        "sports": "Sports",
+        "business": "Business",
+        "health": "Health",
+        "technology": "Technology",
+        "entertainment": "Entertainment"
+    },
     "theme": {
         "theme": "Theme",
         "dark": "Dark",

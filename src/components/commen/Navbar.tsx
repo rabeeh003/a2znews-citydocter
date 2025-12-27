@@ -54,7 +54,7 @@ export default function Navbar() {
     )
 
     return (
-        <nav className="w-full p-2 border-b bg-background">
+        <nav className="w-full p-2 bg-background">
             <div className="mx-auto flex justify-between lg:grid h-16 max-w-7xl lg:grid-cols-3 items-center">
                 <div className="hidden lg:flex justify-start">
                     <RightSection />

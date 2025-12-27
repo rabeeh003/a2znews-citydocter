@@ -10,9 +10,10 @@ export interface User {
     name: string
 }
 
-export interface News {
+export interface DetailedNews {
     id: number
     title: string
     body: string
-    reporterName: string
+    userId: number
+    image?: string
 }

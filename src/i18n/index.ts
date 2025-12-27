@@ -5,6 +5,11 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import en from './locales/en.json'
 import ar from './locales/ar.json'
 
+export const AllLanguages = [
+    { value: "en", label: "English" },
+    { value: "ar", label: "العربية" },
+]
+
 i18n
     .use(LanguageDetector)
     .use(initReactI18next)

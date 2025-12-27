@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
+export type Theme = "dark" | "light" | "system"
+
 export interface PreferenceState {
-    theme: string
+    theme: Theme
     language: string
 }
 
 const initialState: PreferenceState = {
-    theme: 'dark',
+    theme: 'light',
     language: 'en',
 }
 
@@ -15,7 +17,7 @@ export const preferenceSlice = createSlice({
     name: 'preference',
     initialState,
     reducers: {
-        setTheme: (state, action: PayloadAction<string>) => {
+        setTheme: (state, action: PayloadAction<Theme>) => {
             state.theme = action.payload
         },
         setLanguage: (state, action: PayloadAction<string>) => {

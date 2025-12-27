@@ -2,6 +2,9 @@
     "welcome": "مرحبا",
     "login": "تسجيل الدخول",
     "logout": "تسجيل الخروج",
+    "search": "بحث",
+    "searchPlaceholder": "بحث...",
+    "noDataFound": "لا توجد بيانات.",
     "theme": {
         "theme": "الثيم",
         "dark": "الظلام",

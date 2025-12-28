@@ -8,7 +8,7 @@ export default function Categories({ home }: { home?: boolean }) {
 
 
     return (
-        <div className="flex w-full border border-gray-200/50 dark:border-gray-800/50 rounded-2xl gap-2 justify-between max-w-7xl p-1 backdrop-blur-md bg-white/10 dark:bg-black/10 z-50 transition-all">
+        <div className="flex w-full border border-gray-200/50 dark:border-gray-500/50 rounded-2xl gap-2 justify-between max-w-7xl p-1 backdrop-blur-md bg-white/10 dark:bg-black/10 z-50 transition-all">
             <div className="flex gap-2">
                 {home && (
                     <>

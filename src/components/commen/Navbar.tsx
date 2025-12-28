@@ -23,21 +23,24 @@ export default function Navbar() {
                 onCheckedChange={(checked) =>
                     setTheme(checked ? "dark" : "light")
                 }
-                className="relative h-8 w-14 rounded-full flex items-center px-1
-    data-[state=checked]:bg-red-600
-    data-[state=unchecked]:bg-yellow-400
+                className="relative h-9 w-16 rounded-full flex items-center px-1 transition-all duration-500 ease-in-out
+    data-[state=checked]:bg-slate-900 
+    data-[state=unchecked]:bg-amber-400
     data-[state=checked]:justify-end
-    data-[state=unchecked]:justify-start"
+    data-[state=unchecked]:justify-start
+    hover:scale-105 active:scale-95 shadow-md border-2 border-transparent focus:ring-2 focus:ring-primary/20"
 
             >
                 <span
-                    className="pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transition-transform"
+                    className="pointer-events-none flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-sm transition-all duration-500 ease-in-out"
                 >
-                    {theme === "dark" ? (
-                        <Moon className="h-4 w-4 text-red-600" />
-                    ) : (
-                        <Sun className="h-4 w-4 text-yellow-500" />
-                    )}
+                    <div className="relative w-full h-full flex items-center justify-center">
+                        {theme === "dark" ? (
+                            <Moon className="h-4 w-4 text-slate-900 transition-all duration-500 scale-100 rotate-0 dark:rotate-[360deg]" />
+                        ) : (
+                            <Sun className="h-4 w-4 text-amber-500 transition-all duration-500 scale-100 rotate-0 dark:rotate-[360deg]" />
+                        )}
+                    </div>
                 </span>
             </Switch>
 

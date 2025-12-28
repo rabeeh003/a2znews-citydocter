@@ -38,11 +38,11 @@ export default function HomePage() {
 
     return (
         <>
-            <div className="sticky top-1 z-50 px-2 w-full flex items-center justify-center">
+            <div className="sticky top-1 z-50 px-2 w-full flex items-center justify-center animate-fade-in-down">
                 <Categories />
             </div>
             <div className="px-2 pt-3 max-w-7xl mx-auto lg:flex gap-2 pb-2">
-                <div className="lg:w-[80%] ">
+                <div className="lg:w-[80%] animate-fade-in-up">
                     <MainNews news={bannerNews} />
                     <div className="flex items-center justify-between gap-2 mt-5 mb-2">
                         <span className="font-semibold text-2xl">{t("home.latestNews")}</span>
@@ -96,7 +96,7 @@ export default function HomePage() {
                         </div>
                     )}
                 </div>
-                <div className="hidden lg:block sticky top-16 lg:w-[20%] h-fit">
+                <div className="hidden lg:block sticky top-16 lg:w-[20%] h-fit animate-fade-in-up [animation-delay:200ms]">
                     <div className="flex items-center gap-2 border border-gray-300 dark:border-gray-800 p-2 rounded-2xl">
                         <img src="/images/papericon.png" alt="" className="w-15 h-15" />
                         <div>

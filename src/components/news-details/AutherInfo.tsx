@@ -2,7 +2,6 @@ import { CalendarIcon, MapPin, Phone, Globe, Mail, Building2, MoreVertical } fro
 import {
     Avatar,
     AvatarFallback,
-    AvatarImage,
 } from "@/components/ui/avatar"
 import {
     HoverCard,

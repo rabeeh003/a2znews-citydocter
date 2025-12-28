@@ -10,7 +10,7 @@ import type { News } from '@/app/slices/api';
 
 const MainNews: React.FC<{ news: News[] }> = ({ news }) => {
     return (
-        <div className="w-full h-[400px] md:h-[400px] relative">
+        <div className="w-full h-[400px] md:h-[400px] relative animate-fade-in">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}

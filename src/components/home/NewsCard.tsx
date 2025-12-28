@@ -3,8 +3,8 @@ import type { News } from "@/app/slices/api/api.types";
 
 export default function NewsCard({ news }: { news: News }) {
     return (
-        <Link to={`/news/${news.id}`} className="block">
-            <div className="w-full h-[310px] my-2 lg:my-0 lg:h-[120px] rounded-2xl lg:flex lg:gap-2 border border-gray-300 dark:border-gray-800 overflow-hidden hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+        <Link to={`/news/${news.id}`} className="block animate-fade-in-up">
+            <div className="w-full h-[310px] my-2 lg:my-0 lg:h-[120px] rounded-2xl lg:flex lg:gap-2 border border-gray-300 dark:border-gray-800 overflow-hidden hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-[0.98]">
                 <img src={news.image || "/images/placeholder.png"} alt={news.title} className="w-full lg:w-[100px] h-[190px] lg:h-[120px] object-cover lg:rounded-l-2xl bg-gray-300" />
                 <div className="flex flex-col p-2 mb-2 lg:mb-0 justify-center">
                     <h2 className="text-lg md:text-xl font-bold leading-tight drop-shadow-lg line-clamp-1">{news.title}</h2>

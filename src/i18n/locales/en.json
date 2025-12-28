@@ -24,5 +24,34 @@
         "language": "Language",
         "ar": "العربية",
         "en": "English"
+    },
+    "home": {
+        "eNewspaper": "E-Newspaper",
+        "read": "Read",
+        "latestNews": "Latest News",
+        "sportsNews": "Sports News",
+        "businessNews": "Business News"
+    },
+    "detailspage": {
+        "moreNews": "More News",
+        "comments": "Comments",
+        "comment": "Comment",
+        "commentPlaceholder": "Write a comment...",
+        "postComment": "Post Comment"
+    },
+    "footer": {
+        "about": "Bringing you the most accurate and up-to-date news from across the globe. Stay connected, stay informed.",
+        "support": "Support",
+        "location": "Location",
+        "callUs": "Call Us",
+        "emailUs": "Email Us",
+        "stayUpdated": "Stay Updated",
+        "subscribe": "Subscribe to our newsletter for the latest updates and breaking news.",
+        "yourEmail": "Your Email Address",
+        "cookies": "Cookies",
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "copyright": "Copyright © 2025 A2Z News. All rights reserved.",
+        "slogen": "Crafted for excellence"
     }
 }

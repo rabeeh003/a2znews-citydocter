@@ -10,10 +10,13 @@ import Categories from "@/components/home/Categories";
 import { Skeleton } from "@/components/ui/skeleton";
 import NewsCardSkeleton from "@/components/home/NewsCardSkeleton";
 import AutherInfo from "@/components/news-details/AutherInfo";
+import { useTranslation } from "react-i18next";
+import ChevronIcon from "@/components/commen/ChevronIcon";
 
 export default function NewsDetailsPage() {
     const { id } = useParams<{ id: string }>()
     const numericId = id ? parseInt(id) : 0
+    const { t } = useTranslation()
 
     const { data: newsDetails, isLoading: isNewsLoading } = useGetNewsByIdQuery(numericId, { skip: !numericId })
     const { data: comments = [] } = useGetCommentsByNewsIdQuery(numericId, { skip: !numericId })
@@ -56,9 +59,9 @@ export default function NewsDetailsPage() {
                         <img src="https://www.shutterstock.com/image-illustration/delicious-food-menu-banner-asian-260nw-2266341803.jpg" alt="" className="w-full rounded-2xl h-48 object-cover" />
                     </div>
                     <div className="flex items-center justify-between gap-2 mt-5 mb-2">
-                        <span className="font-semibold text-2xl">More News</span>
+                        <span className="font-semibold text-2xl">{t("detailspage.moreNews")}</span>
                         <span className="cursor-pointer bg-red-600 p-2 rounded-full">
-                            <ChevronRight className="h-4 w-4 text-white" />
+                            <ChevronIcon right className="h-4 w-4 text-white" />
                         </span>
                     </div>
                     <div className="lg:grid lg:grid-cols-2 gap-2">
@@ -72,14 +75,10 @@ export default function NewsDetailsPage() {
                     </div>
                 </div>
                 <div className="hidden lg:block sticky top-16 lg:w-[20%] h-fit">
-                    <div className="flex items-center gap-2 border border-gray-300 dark:border-gray-800 p-2 rounded-2xl">
-                        <img src="/images/papericon.png" alt="" className="w-15 h-15" />
-                        <div>
-                            <h2 className="font-semibold text-xl">E Newspaper</h2>
-                            <p className="text-gray-500">Read</p>
-                        </div>
+                    <div className="p-1 mb-2 border border-gray-300 dark:border-gray-800 rounded-2xl">
+                        <img src="https://offersinme.in/catalogue/2022/05/27/8407/8407-0-noon-big-grocery-sale.jpg" alt="" className="w-full rounded-2xl" />
                     </div>
-                    <div className="p-1 my-2 border border-gray-300 dark:border-gray-800 rounded-2xl">
+                    <div className="p-1 mb-2 border border-gray-300 dark:border-gray-800 rounded-2xl">
                         <img src="https://offersinme.in/catalogue/2022/05/27/8407/8407-0-noon-big-grocery-sale.jpg" alt="" className="w-full rounded-2xl" />
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Send, User, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import CommentList from './CommentList';
+import { useTranslation } from 'react-i18next';
 
 interface CommentProps {
     comments: {
@@ -14,6 +15,7 @@ interface CommentProps {
 
 export default function Comments({ comments }: CommentProps) {
     const [commentText, setCommentText] = useState("");
+    const { t } = useTranslation()
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -27,7 +29,7 @@ export default function Comments({ comments }: CommentProps) {
         <div className="mt-8 space-y-6 text-foreground">
             <div className="flex items-center gap-2 mb-4">
                 <MessageSquare className="w-6 h-6 text-red-600" />
-                <h3 className="text-xl font-bold">Comments ({comments.length})</h3>
+                <h3 className="text-xl font-bold">{t("detailspage.comments")} ({comments.length})</h3>
             </div>
 
             {/* Comment Input Section */}
@@ -40,7 +42,7 @@ export default function Comments({ comments }: CommentProps) {
                         <textarea
                             value={commentText}
                             onChange={(e) => setCommentText(e.target.value)}
-                            placeholder="Add a comment..."
+                            placeholder={t("detailspage.commentPlaceholder")}
                             className="w-full bg-transparent border-none outline-none resize-none text-sm md:text-base py-1 scrollbar-none min-h-[40px]"
                             rows={1}
                         />
@@ -51,7 +53,7 @@ export default function Comments({ comments }: CommentProps) {
                                 disabled={!commentText.trim()}
                                 className="bg-red-600 hover:bg-red-700 text-white rounded-xl px-5 py-2 transition-all active:scale-95 flex items-center gap-2 font-semibold"
                             >
-                                Post <Send className="w-4 h-4" />
+                                {t("detailspage.postComment")} <Send className="w-4 h-4" />
                             </Button>
                         </div>
                     </div>

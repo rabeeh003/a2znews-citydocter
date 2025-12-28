@@ -17,7 +17,7 @@ export default function Footer() {
                             <h2 className="text-2xl font-black tracking-tight">A2Z<span className="text-red-600">NEWS</span></h2>
                         </Link>
                         <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                            Bringing you the most accurate and up-to-date news from across the globe. Stay connected, stay informed.
+                            {t("footer.about")}
                         </p>
                         <div className="flex items-center gap-3">
                             {[
@@ -60,15 +60,15 @@ export default function Footer() {
                     <div className="lg:col-span-1">
                         <h3 className="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                             <span className="h-1.5 w-1.5 bg-red-600 rounded-full"></span>
-                            Stay Updated
+                            {t("footer.stayUpdated")}
                         </h3>
                         <p className="text-muted-foreground text-sm mb-4">
-                            Subscribe to our newsletter for the latest updates and breaking news.
+                            {t("footer.subscribe")}
                         </p>
-                        <div className="relative group">
+                        <div className="relative group ">
                             <input
                                 type="email"
-                                placeholder="Your email address"
+                                placeholder={t("footer.yourEmail")}
                                 className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all"
                             />
                             <button className="absolute right-2 top-2 p-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
@@ -80,7 +80,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                             <span className="h-1.5 w-1.5 bg-red-600 rounded-full"></span>
-                            Support
+                            {t("footer.support")}
                         </h3>
                         <div className="flex flex-col gap-4">
                             <div className="flex items-start gap-4">
@@ -88,7 +88,7 @@ export default function Footer() {
                                     <MapPin size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-tighter mb-0.5">Location</p>
+                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-tighter mb-0.5">{t("footer.location")}</p>
                                     <p className="text-sm font-medium text-muted-foreground">123 Media Street, NY</p>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@ export default function Footer() {
                                     <Phone size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-tighter mb-0.5">Call Us</p>
+                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-tighter mb-0.5">{t("footer.callUs")}</p>
                                     <p className="text-sm font-medium text-muted-foreground">+1 (555) 123-4567</p>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@ export default function Footer() {
                                     <Mail size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-tighter mb-0.5">Email</p>
+                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-tighter mb-0.5">{t("footer.emailUs")}</p>
                                     <p className="text-sm font-medium text-muted-foreground">contact@a2znews.com</p>
                                 </div>
                             </div>
@@ -120,14 +120,14 @@ export default function Footer() {
                             © {new Date().getFullYear()} A2Z News Network.
                         </p>
                         <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">
-                            Crafted for excellence
+                            {t("footer.copyright")}
                         </p>
                     </div>
 
                     <div className="flex items-center gap-8">
-                        <Link to="#" className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-red-600 transition-colors">Privacy</Link>
-                        <Link to="#" className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-red-600 transition-colors">Terms</Link>
-                        <Link to="#" className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-red-600 transition-colors">Cookies</Link>
+                        <Link to="#" className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-red-600 transition-colors">{t("footer.privacy")}</Link>
+                        <Link to="#" className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-red-600 transition-colors">{t("footer.terms")}</Link>
+                        <Link to="#" className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-red-600 transition-colors">{t("footer.cookies")}</Link>
                     </div>
                 </div>
             </div>

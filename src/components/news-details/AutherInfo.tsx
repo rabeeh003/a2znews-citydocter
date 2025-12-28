@@ -45,7 +45,6 @@ export default function AutherInfo({ reporter }: { reporter: User }) {
                     <div className="bg-red-600 h-20 w-full relative">
                         <div className="absolute -bottom-6 left-6">
                             <Avatar className="h-16 w-16 border-4 border-white dark:border-gray-950 shadow-md">
-                                <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${reporter.username}`} />
                                 <AvatarFallback className="bg-gray-100 font-bold">{initials}</AvatarFallback>
                             </Avatar>
                         </div>

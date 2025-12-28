@@ -19,7 +19,7 @@ export default function Categories({ home }: { home?: boolean }) {
                 )}
                 <div className="hidden lg:flex items-center gap-2 border border-red-200 dark:border-red-800 px-2 rounded-xl">
                     <Search className="h-6 text-yellow-500" />
-                    <input type="text" placeholder="Search News" />
+                    <input type="text" placeholder={i18n.t("searchPlaceholder")} />
                 </div>
                 <div className="flex items-center gap-2 bg-red-600 px-2 rounded-xl">
                     <Shapes className="h-6 w-6 text-yellow-500" />

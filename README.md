@@ -24,4 +24,5 @@ npm run dev
 ```
 The application will be available at `http://localhost:5173`.
 
-
+<img width="1892" height="857" alt="image" src="https://github.com/user-attachments/assets/42639742-48b5-4a68-b058-d9b24ee6bdba" />
+<img width="1919" height="975" alt="Screenshot 2025-12-28 180215" src="https://github.com/user-attachments/assets/8bf0c237-cf18-42c0-b290-970c4d990efe" />

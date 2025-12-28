@@ -6,6 +6,7 @@ import type { News } from "@/app/slices/api/api.types";
 import { useGetNewsQuery } from "@/app/slices/api/newsApi";
 import { ChevronRight } from "lucide-react";
 import NewsCardSkeleton from "@/components/home/NewsCardSkeleton";
+import ChevronIcon from "@/components/commen/ChevronIcon";
 
 export default function HomePage() {
     const { data: news = [], isLoading: loading } = useGetNewsQuery()
@@ -46,7 +47,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between gap-2 mt-5 mb-2">
                         <span className="font-semibold text-2xl">Latest News</span>
                         <span className="cursor-pointer bg-red-600 p-2 rounded-full">
-                            <ChevronRight className="h-4 w-4 text-white" />
+                            <ChevronIcon right={true} className="h-4 w-4 text-white" />
                         </span>
                     </div>
                     {loading ? (
@@ -64,7 +65,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between gap-2 mt-5 mb-2">
                         <span className="font-semibold text-2xl">Sports News</span>
                         <span className="cursor-pointer bg-red-600 p-2 rounded-full">
-                            <ChevronRight className="h-4 w-4 text-white " />
+                            <ChevronIcon right={true} className="h-4 w-4 text-white " />
                         </span>
                     </div>
                     {loading ? (
@@ -82,7 +83,7 @@ export default function HomePage() {
                     <div className="flex items-center justify-between gap-2 mt-5 mb-2">
                         <span className="font-semibold text-2xl">Business News</span>
                         <span className="cursor-pointer bg-red-600 p-2 rounded-full">
-                            <ChevronRight className="h-4 w-4 text-white" />
+                            <ChevronIcon right={true} className="h-4 w-4 text-white" />
                         </span>
                     </div>
                     {loading ? (

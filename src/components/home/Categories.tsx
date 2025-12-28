@@ -1,9 +1,11 @@
-import { ChevronLeft, Search, Shapes } from "lucide-react"
+import { ChevronLeft, ChevronRight, Search, Shapes } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
+import ChevronIcon from "../commen/ChevronIcon"
 
 export default function Categories({ home }: { home?: boolean }) {
     const { i18n } = useTranslation()
+
 
     return (
         <div className="flex w-full border rounded-2xl gap-2 justify-between max-w-7xl p-1 backdrop-blur-sm">
@@ -11,7 +13,7 @@ export default function Categories({ home }: { home?: boolean }) {
                 {home && (
                     <>
                         <Link to="/" className="flex items-center bg-red-600 px-2 rounded-xl">
-                            <ChevronLeft className="h-6 text-yellow-500" />
+                            <ChevronIcon className="h-6 text-yellow-500" />
                         </Link>
                     </>
                 )}

@@ -62,7 +62,7 @@ export default function Navbar() {
                 </div>
 
                 <Link to="/" className="flex justify-center items-center gap-2">
-                    <img className="w-20" src="images/logo.png" alt="a2z-logo" />
+                    <img className="w-20" src="/images/logo.png" alt="a2z-logo" />
                     <h1 className="hidden lg:block text-2xl font-bold">A2Z News</h1>
                 </Link>
 

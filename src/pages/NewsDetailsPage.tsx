@@ -14,6 +14,8 @@ import type { DetailedNews } from "@/utils/types";
 
 import { useParams } from "react-router-dom";
 import Categories from "@/components/home/Categories";
+import { Skeleton } from "@/components/ui/skeleton";
+import NewsCardSkeleton from "@/components/home/NewsCardSkeleton";
 
 export default function NewsDetailsPage() {
     const { id } = useParams<{ id: string }>()
@@ -51,7 +53,7 @@ export default function NewsDetailsPage() {
     return (
         <>
             <div className="sticky top-1 z-50 px-2 w-full flex items-center justify-center">
-                <Categories />
+                <Categories home={true} />
             </div>
             <div className="px-2 pt-3 max-w-7xl mx-auto lg:flex gap-2 pb-2">
                 <div className="lg:w-[80%] ">
@@ -60,11 +62,20 @@ export default function NewsDetailsPage() {
                             <img src={newsDetails?.image || '/images/placeholder.png'} alt="" className="w-full rounded-2xl h-full max-h-[400px] object-contain bg-gray-300" />
                             <h2 className="font-semibold text-2xl">{newsDetails?.title}</h2>
                             <p className="text-gray-500">{newsDetails?.body}</p>
-                            <Comments comments={comments} />
                         </div>
                     ) : (
-                        <p>Loading...</p>
+                        <div className="flex flex-col space-y-3">
+                            <Skeleton className="h-[200px] w-full rounded-xl" />
+                            <div className="space-y-2">
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-full" />
+                            </div>
+                        </div>
                     )}
+                    <Comments comments={comments} />
                     <div className="my-2">
                         <img src="https://www.shutterstock.com/image-illustration/delicious-food-menu-banner-asian-260nw-2266341803.jpg" alt="" className="w-full rounded-2xl h-48 object-cover" />
                     </div>
@@ -76,7 +87,7 @@ export default function NewsDetailsPage() {
                     </div>
                     <div className="lg:grid lg:grid-cols-2 gap-2">
                         {loading ? (
-                            <p>Loading...</p>
+                            <NewsCardSkeleton />
                         ) : (
                             news.slice(20, 24).map((newsItem: News) => (
                                 <NewsCard key={newsItem.id} news={newsItem} />

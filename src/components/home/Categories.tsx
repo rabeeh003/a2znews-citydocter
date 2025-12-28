@@ -1,15 +1,23 @@
-import { Button } from "@/components/ui/button"
-import { Search, Shapes } from "lucide-react"
+import { ChevronLeft, Home, Search, Shapes } from "lucide-react"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
-export default function Categories() {
+export default function Categories({ home }: { home?: boolean }) {
     const { i18n } = useTranslation()
 
     return (
         <div className="flex w-full border rounded-2xl gap-2 justify-between max-w-7xl p-1 backdrop-blur-sm">
             <div className="flex gap-2">
+                {home && (
+                    <>
+                        <Link to="/" className="flex items-center bg-red-600 px-2 rounded-xl">
+                            <ChevronLeft className="h-6 text-yellow-500" />
+                            {/* <Home className="h-6 text-yellow-500" /> */}
+                        </Link>
+                    </>
+                )}
                 <div className="hidden lg:flex items-center gap-2 border border-red-200 dark:border-red-800 px-2 rounded-xl">
-                    <Search className="h-6 w-6 text-yellow-500" />
+                    <Search className="h-6 text-yellow-500" />
                     <input type="text" placeholder="Search News" />
                 </div>
                 <div className="flex items-center gap-2 bg-red-600 px-2 rounded-xl">

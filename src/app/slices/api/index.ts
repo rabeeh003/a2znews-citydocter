@@ -1,4 +1,2 @@
-export { default } from './api.slice'
-export * from './api.thunks'
+export * from './newsApi'
 export * from './api.types'
-export * from './api.selectors'

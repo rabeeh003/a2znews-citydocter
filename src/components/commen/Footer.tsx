@@ -6,7 +6,7 @@ export default function Footer() {
     const { t } = useTranslation();
 
     return (
-        <footer className="w-full bg-background border-t border-gray-100 dark:border-gray-900 pt-16 pb-8 mt-20">
+        <footer className="w-full bg-background border-t border-gray-100 dark:border-gray-900 pt-10 lg:pt-16 pb-8 mt-5">
             <div className="max-w-7xl mx-auto px-4 lg:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
                     <div className="flex flex-col gap-6">

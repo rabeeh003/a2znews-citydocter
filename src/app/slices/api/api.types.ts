@@ -8,6 +8,25 @@ export interface Post {
 export interface User {
     id: number
     name: string
+    username: string
+    email: string
+    address: {
+        street: string
+        suite: string
+        city: string
+        zipcode: string
+        geo: {
+            lat: string
+            lng: string
+        }
+    }
+    phone: string
+    website: string
+    company: {
+        name: string
+        catchPhrase: string
+        bs: string
+    }
 }
 
 export interface News {
@@ -15,5 +34,7 @@ export interface News {
     title: string
     body: string
     image?: string
+    reporterId: number
     reporterName: string
+    reporter?: User
 }

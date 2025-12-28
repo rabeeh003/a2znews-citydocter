@@ -1,4 +1,4 @@
-import { ChevronLeft, Home, Search, Shapes } from "lucide-react"
+import { ChevronLeft, Search, Shapes } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 
@@ -12,7 +12,6 @@ export default function Categories({ home }: { home?: boolean }) {
                     <>
                         <Link to="/" className="flex items-center bg-red-600 px-2 rounded-xl">
                             <ChevronLeft className="h-6 text-yellow-500" />
-                            {/* <Home className="h-6 text-yellow-500" /> */}
                         </Link>
                     </>
                 )}

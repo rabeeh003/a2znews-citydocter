@@ -1,19 +1,19 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, } from 'redux-persist'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore, } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import preferenceReducer from './slices/preference'
-import apiReducer from './slices/api/api.slice'
+import { newsApi } from './slices/api/newsApi'
 
 const rootReducer = combineReducers({
     preference: preferenceReducer,
-    api: apiReducer,
+    [newsApi.reducerPath]: newsApi.reducer,
 })
 
 const persistConfig = {
     key: 'root',
     storage,
     whitelist: ['preference'],
-    blacklist: ['api'],
+    blacklist: [newsApi.reducerPath],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -25,7 +25,7 @@ export const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER,],
             },
-        }),
+        }).concat(newsApi.middleware),
 })
 
 export const persistor = persistStore(store)

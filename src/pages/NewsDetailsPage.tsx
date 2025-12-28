@@ -1,54 +1,27 @@
 import NewsCard from "@/components/home/NewsCard";
 import Comments from "@/components/news-details/Comment";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import type { News } from "@/app/slices/api/api.types";
-import { fetchNews } from "@/app/slices/api/api.thunks";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import {
-    selectNews,
-    selectApiLoading,
-} from '@/app/slices/api/api.selectors'
+import { useGetNewsQuery, useGetNewsByIdQuery, useGetCommentsByNewsIdQuery } from "@/app/slices/api/newsApi";
 import { ChevronRight } from "lucide-react";
-import axios from "axios";
-import type { DetailedNews } from "@/utils/types";
 
 import { useParams } from "react-router-dom";
 import Categories from "@/components/home/Categories";
 import { Skeleton } from "@/components/ui/skeleton";
 import NewsCardSkeleton from "@/components/home/NewsCardSkeleton";
+import AutherInfo from "@/components/news-details/AutherInfo";
 
 export default function NewsDetailsPage() {
     const { id } = useParams<{ id: string }>()
-    const dispatch = useAppDispatch()
-    const news = useAppSelector(selectNews)
-    const loading = useAppSelector(selectApiLoading)
-    const [newsDetails, setNewsDetails] = useState<DetailedNews>()
-    const [comments, setComments] = useState([])
+    const numericId = id ? parseInt(id) : 0
+
+    const { data: newsDetails, isLoading: isNewsLoading } = useGetNewsByIdQuery(numericId, { skip: !numericId })
+    const { data: comments = [] } = useGetCommentsByNewsIdQuery(numericId, { skip: !numericId })
+    const { data: news = [], isLoading: loading } = useGetNewsQuery()
 
     useEffect(() => {
-        if (!id) return;
         window.scrollTo(0, 0);
-
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-            .then(response => {
-                setNewsDetails(response.data)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
-            .then(response => {
-                setComments(response.data)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-
     }, [id])
-
-    useEffect(() => {
-        dispatch(fetchNews())
-    }, [dispatch])
 
     return (
         <>
@@ -57,7 +30,7 @@ export default function NewsDetailsPage() {
             </div>
             <div className="px-2 pt-3 max-w-7xl mx-auto lg:flex gap-2 pb-2">
                 <div className="lg:w-[80%] ">
-                    {newsDetails ? (
+                    {!isNewsLoading && newsDetails ? (
                         <div>
                             <img src={newsDetails?.image || '/images/placeholder.png'} alt="" className="w-full rounded-2xl h-full max-h-[400px] object-contain bg-gray-300" />
                             <h2 className="font-semibold text-2xl">{newsDetails?.title}</h2>
@@ -74,6 +47,9 @@ export default function NewsDetailsPage() {
                                 <Skeleton className="h-4 w-full" />
                             </div>
                         </div>
+                    )}
+                    {!isNewsLoading && newsDetails?.reporter && (
+                        <AutherInfo reporter={newsDetails.reporter} />
                     )}
                     <Comments comments={comments} />
                     <div className="my-2">

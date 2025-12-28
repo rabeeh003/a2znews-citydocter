@@ -2,25 +2,13 @@ import MainNews from "@/components/home/MainNews";
 import Categories from "../components/home/Categories";
 import NewsCard from "@/components/home/NewsCard";
 
-import { useEffect } from "react";
 import type { News } from "@/app/slices/api/api.types";
-import { fetchNews } from "@/app/slices/api/api.thunks";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import {
-    selectNews,
-    selectApiLoading,
-} from '@/app/slices/api/api.selectors'
+import { useGetNewsQuery } from "@/app/slices/api/newsApi";
 import { ChevronRight } from "lucide-react";
 import NewsCardSkeleton from "@/components/home/NewsCardSkeleton";
 
 export default function HomePage() {
-    const dispatch = useAppDispatch()
-    const news = useAppSelector(selectNews)
-    const loading = useAppSelector(selectApiLoading)
-
-    useEffect(() => {
-        dispatch(fetchNews())
-    }, [dispatch])
+    const { data: news = [], isLoading: loading } = useGetNewsQuery()
 
     const bannerNews: News[] = [
         {
@@ -29,18 +17,21 @@ export default function HomePage() {
             image: "https://media.assettype.com/gulfnews/2025-12-24/3jevqfz2/Indigo-new.jpg",
             body: "Body 1",
             reporterName: "Reporter 1",
+            reporterId: 1,
         },
         {
             id: 2,
             title: "News 2",
             reporterName: "Reporter 2",
             body: "Body 2",
+            reporterId: 1,
         },
         {
             id: 3,
             title: "News 3",
             reporterName: "Reporter 3",
             body: "Body 3",
+            reporterId: 1,
         },
     ];
 

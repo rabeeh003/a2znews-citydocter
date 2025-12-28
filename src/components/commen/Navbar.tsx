@@ -63,7 +63,7 @@ export default function Navbar() {
 
                 <Link to="/" className="flex justify-center items-center gap-2">
                     <img className="w-20" src="/images/logo.png" alt="a2z-logo" />
-                    <h1 className="hidden lg:block text-2xl font-bold">A2Z News</h1>
+                    <h2 className="hidden pb-1 lg:block text-2xl font-black tracking-tight">A2Z<span className="text-red-600">NEWS</span></h2>
                 </Link>
 
                 <div className="lg:flex justify-end">

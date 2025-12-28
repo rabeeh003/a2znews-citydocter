@@ -1,5 +1,6 @@
 import './App.css'
 import Navbar from './components/commen/Navbar'
+import Footer from './components/commen/Footer'
 import { ThemeProvider } from './components/commen/theme-provider'
 import { useDirection } from './i18n/useDirection'
 import { Routes, Route } from 'react-router-dom'
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/news/:id" element={<NewsDetailsPage />} />
       </Routes>
+      <Footer />
     </ThemeProvider>
   )
 }

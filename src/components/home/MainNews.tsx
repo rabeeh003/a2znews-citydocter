@@ -28,18 +28,19 @@ const MainNews: React.FC<{ news: News[] }> = ({ news }) => {
                                 alt={item.title}
                                 className="w-full h-full object-cover transition-transform duration-700 bg-gray-300 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-12 text-white">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-12 text-white text-start">
                                 <div className="max-w-4xl">
                                     <h2 className="text-2xl md:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
                                         {item.title}
                                     </h2>
                                     <div className="flex items-center gap-3">
-                                        <div className="h-1 w-12 bg-red-600 rounded-full" />
+                                        <div className="h-1 w-5 lg:w-12 bg-red-600 rounded-full" />
                                         <p className="text-sm md:text-base font-medium text-gray-200 uppercase tracking-widest">
                                             Reported by <span className="text-white font-bold">{item.reporterName}</span>
                                         </p>
                                     </div>
                                 </div>
+                                <p className="text-sm md:text-base font-medium text-gray-200 uppercase tracking-widest">{item.body}</p>
                             </div>
                         </div>
                     </SwiperSlide>
